@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs ls:*)",
+      "Bash(npm run:*)",
+      "Bash(node -e \"const l = require\\(''./node_modules/lucide-react''\\); [''Twitter'',''Globe'',''Link2'',''GitBranch'',''UserCircle''].forEach\\(n => console.log\\(n, n in l\\)\\)\")",
+      "Bash(wc:*)",
+      "Bash(find /c/Users/aniru/OneDrive/Desktop/vacademy/vacademy -name package.json -o -name .env*)",
+      "Bash(npx vite:*)"
+    ]
+  }
+}

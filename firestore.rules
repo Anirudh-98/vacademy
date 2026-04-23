@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users can only read/write their own documents
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+
+      match /enrolledCourses/{courseId} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+
+      match /activityLog/{logId} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+
+      match /liveRegistrations/{classId} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+
+      match /learningPaths/{pathId} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+    }
+
+    match /student_leads/{documentId} {
+      allow create: if true;
+      allow read: if true;
+    }
+  }
+}
